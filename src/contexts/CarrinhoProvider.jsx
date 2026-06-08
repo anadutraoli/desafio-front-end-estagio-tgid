@@ -24,16 +24,20 @@ export function CarrinhoProvider({ children }) {
   }
 
   function removerItemContext(indexParaRemover) {
-    // 1. Cria uma lista nova tirando o item que o usuário clicou
-    const novaLista = itensCarrinho.filter(
-      (item, index) => index !== indexParaRemover,
+    const confirmacao = window.confirm(
+      "Tem certeza que deseja excluir esse item?",
     );
 
-    // 2. Atualiza a tela usando a função do state
-    setitensCarrinho(novaLista);
-
-    // 3. Salva a nova lista no Local Storage
-    localStorage.setItem("meuCarrinho", JSON.stringify(novaLista));
+    if (confirmacao) {
+      const novaLista = itensCarrinho.filter(
+        (item, index) => index !== indexParaRemover,
+      );
+      setitensCarrinho(novaLista);
+      localStorage.setItem("meuCarrinho", JSON.stringify(novaLista));
+      return true;
+    } else {
+      return false;
+    }
   }
 
   return (
