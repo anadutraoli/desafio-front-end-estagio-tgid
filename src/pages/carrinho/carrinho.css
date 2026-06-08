@@ -1,0 +1,19 @@
+.container-carrinho {
+  max-width: 1500px;
+  padding: 50px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+@media (max-width: 750px) {
+    .container-carrinho {
+        padding: 25px;
+    }
+}

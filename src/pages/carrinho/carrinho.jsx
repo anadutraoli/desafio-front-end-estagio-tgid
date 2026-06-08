@@ -1,26 +1,31 @@
-import { useContext } from "react";
-import formatPrice from "../../utils/formatPrice";
+import { useContext, useState } from "react";
 import { CarrinhoContext } from "../../contexts/CarrinhoContext";
+import "./carrinho.css";
+import { CarrinhoItemCard } from "./components/carrinho-item-card";
+import CustomAlert from "../../components/custom-alert/custom-alert";
 
 export function Carrinho() {
-      const { itensCarrinho, removerItemContext } = useContext(CarrinhoContext);
+  const { itensCarrinho } = useContext(CarrinhoContext);
+  const [alerta, setAlerta] = useState("");
 
   return (
-    <main>
+    <main className="container-carrinho">
+      {alerta && (
+        <CustomAlert
+          message={alerta}
+          onClose={() => setAlerta("")}
+          type="delete"
+        />
+      )}
       <h1>Seu Carrinho</h1>
-
       {itensCarrinho.length === 0 ? (
-        <p>Seu carrinho está vazio.</p>
+        <p>Seu carrinho está vazio :(</p>
       ) : (
-        <ul>
+        <div className="container-card">
           {itensCarrinho.map((item, index) => (
-            <li key={index}>
-              {item.title} - {formatPrice(item?.preco)}
-              <button onClick={() => {removerItemContext(index)}}>Remover</button>
-            </li>
+            <CarrinhoItemCard key={index} index={index} item={item} setAlerta={setAlerta} />
           ))}
-        </ul>
-        
+        </div>
       )}
     </main>
   );
