@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import formatPrice from "../../utils/formatPrice";
 import { CarrinhoContext } from "../../contexts/CarrinhoContext";
 import CustomAlert from "../custom-alert/custom-alert";
-import { SkeletonCard } from "./skeleton-card";
+import { SkeletonCard } from "../skeleton-card/skeleton-card";
 
 export function ItemCards({ bd }) {
   const [itens, setItens] = useState([]);
