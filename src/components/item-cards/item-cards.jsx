@@ -6,10 +6,12 @@ import { useNavigate } from "react-router-dom";
 import formatPrice from "../../utils/formatPrice";
 import { CarrinhoContext } from "../../contexts/CarrinhoContext";
 import CustomAlert from "../custom-alert/custom-alert";
+import { SkeletonCard } from "./skeleton-card";
 
 export function ItemCards({ bd }) {
   const [itens, setItens] = useState([]);
   const [alerta, setAlerta] = useState("");
+  const [loading, setLoading] = useState(true);
   const { adicionarAoCarrinhoContext } = useContext(CarrinhoContext);
   const navigate = useNavigate();
 
@@ -29,8 +31,14 @@ export function ItemCards({ bd }) {
 
   useEffect(() => {
     carregarDados(bd)
-      .then((dados) => setItens(dados))
-      .catch((err) => console.error(err));
+      .then((dados) => {
+        setItens(dados);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
   }, [bd]);
 
   return (
@@ -43,31 +51,35 @@ export function ItemCards({ bd }) {
         />
       )}
       <div className="cards-container">
-        {itens?.map((item, index) => (
-          <div className="item-cards" key={index}>
-            <img src={item?.poster_url} alt="Capa" />
-            <p className="titulo-item">{`The Sims™ 4 ${item?.title}`}</p>
-            <p className="preco-item">{formatPrice(item?.preco)}</p>
-            <button
-              onClick={() => {
-                saibaMaisBtn(item);
-              }}
-              className="saibamais-item"
-            >
-              <BsFileEarmarkMedical />
-              Saiba Mais
-            </button>
-            <button
-              className="carrinho-item"
-              onClick={() => {
-                adicaoCarrinho(item);
-              }}
-            >
-              <BsCart />
-              Carrinho
-            </button>
-          </div>
-        ))}
+        {loading ? (
+          <SkeletonCard cards={4} />
+        ) : (
+          itens?.map((item, index) => (
+            <div className="item-cards" key={index}>
+              <img src={item?.poster_url} alt="Capa" />
+              <p className="titulo-item">{`The Sims™ 4 ${item?.title}`}</p>
+              <p className="preco-item">{formatPrice(item?.preco)}</p>
+              <button
+                onClick={() => {
+                  saibaMaisBtn(item);
+                }}
+                className="saibamais-item"
+              >
+                <BsFileEarmarkMedical />
+                Saiba Mais
+              </button>
+              <button
+                className="carrinho-item"
+                onClick={() => {
+                  adicaoCarrinho(item);
+                }}
+              >
+                <BsCart />
+                Carrinho
+              </button>
+            </div>
+          ))
+        )}
       </div>
     </>
   );
