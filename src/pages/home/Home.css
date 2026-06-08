@@ -1,0 +1,26 @@
+.filtros-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px 100px;
+}
+
+.btn-filtro {
+  background-color: transparent;
+  color: #188ddf;
+  border: 2px solid #188ddf;
+  padding: 10px 25px;
+  border-radius: 7px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-filtro:hover {
+  background-color: rgba(24, 141, 223, 0.1);
+}
+
+.btn-filtro.ativo {
+  background-color: #188ddf;
+  color: #ffffff;
+}

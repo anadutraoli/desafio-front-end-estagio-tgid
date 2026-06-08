@@ -1,0 +1,27 @@
+.preview-container {
+  max-width: 1200px;
+  padding: 50px 100px;
+  margin: auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.preview-img img {
+    border-radius: 10px;
+}
+
+.preview-detalhes {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.preview-detalhes h1 {
+  font-size: 2rem;
+}
+
+.preview-detalhes p {
+  text-align: justify;
+}

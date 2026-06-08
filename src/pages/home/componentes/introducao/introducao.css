@@ -1,0 +1,40 @@
+.introducao {
+  max-width: 1200px;
+  padding: 50px 100px;
+  margin: auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.titulo-introducao {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.titulo-introducao h1 {
+  font-size: 2rem;
+}
+
+.span-introducao {
+  color: #2ba400;
+}
+
+@media (max-width: 1000px) {
+  .titulo-introducao h1 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .introducao {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .introducao img {
+    grid-row: 1;
+  }
+}
