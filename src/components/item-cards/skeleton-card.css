@@ -1,4 +1,4 @@
-.skeleton-animacao {
+.skeleton-card-animacao {
   opacity: 0.7;
   animation: skeleton-loading 1s linear infinite alternate;
   width: 100%;

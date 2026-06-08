@@ -27,7 +27,7 @@
 }
 
 .preco-item {
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.3rem;
 }
 
@@ -61,8 +61,6 @@
   text-transform: uppercase;
   font-weight: 600;
   font-size: 1rem;
-  border: none;
-  cursor: pointer;
 }
 
 .carrinho-item:hover {
