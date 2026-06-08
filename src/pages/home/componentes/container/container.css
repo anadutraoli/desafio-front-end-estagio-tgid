@@ -2,8 +2,8 @@
   max-width: 1200px;
   padding: 50px 20px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 50px;
   align-items: center;
   justify-content: center;

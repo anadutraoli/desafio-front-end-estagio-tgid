@@ -24,3 +24,11 @@
   background-color: #188ddf;
   color: #ffffff;
 }
+
+@media (max-width: 750px) {
+  .filtros-container {
+    margin: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

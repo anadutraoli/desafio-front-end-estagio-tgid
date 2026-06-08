@@ -41,7 +41,6 @@
   justify-content: center;
   gap: 20px;
   color: #ffffff;
-  text-decoration: none;
   text-transform: uppercase;
   font-weight: 600;
   font-size: 1rem;
@@ -49,4 +48,32 @@
 
 .carrinho-product-btn:hover {
   background-color: #279101;
+}
+
+@media (max-width: 750px) {
+  .preview-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  padding: 50px;
+
+  }
+
+  .preview-detalhes h1 {
+    font-size: 1.5rem;
+  }
+
+  .descricao-produto {
+    text-align: justify;
+    font-size: 1.2rem;
+  }
+
+  .preco-produto {
+    font-size: 1.2rem;
+  }
+
+  .carrinho-product-btn {
+    padding: 10px 20px;
+    gap: 10px;
+    font-size: 0.75rem;
+  }
 }

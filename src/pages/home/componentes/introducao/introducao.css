@@ -28,10 +28,19 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 750px) {
   .introducao {
     grid-template-columns: 1fr;
     justify-items: center;
+    gap: 50px;
+  }
+
+  .titulo-introducao {
+    text-align: center;
+  }
+
+  .titulo-introducao h1 {
+    font-size: 1.5rem;
   }
 
   .introducao img {
