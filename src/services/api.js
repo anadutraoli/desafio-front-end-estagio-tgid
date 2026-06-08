@@ -22,8 +22,6 @@ export const carregarDados = async (base) => {
 };
 
 export const carregarItemPorId = async (categoria, id) => {
-  await new Promise((resolve) => setTimeout(resolve, 5000));
-
   const response = await api.get(`/${categoria}/${id}`);
   return response.data;
 };
