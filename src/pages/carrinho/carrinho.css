@@ -7,13 +7,50 @@
 }
 
 .container-card {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.resumo-carrinho {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+.resumo-textos {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.resumo-valor {
+  font-size: 1.8rem;
+  color: #188ddf;
+}
+
+.btn-finalizar {
+  background-color: #2ba400;
+  color: #ffffff;
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-transform: uppercase;
+}
+
+.btn-finalizar:hover {
+  background-color: #279101;
 }
 
 @media (max-width: 750px) {
-    .container-carrinho {
-        padding: 25px;
-    }
+  .container-carrinho {
+    padding: 25px;
+  }
 }

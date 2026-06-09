@@ -3,10 +3,17 @@ import { CarrinhoContext } from "../../contexts/CarrinhoContext";
 import "./carrinho.css";
 import { CarrinhoItemCard } from "./components/carrinho-item-card";
 import CustomAlert from "../../components/custom-alert/custom-alert";
+import formatPrice from "../../utils/formatPrice";
 
 export function Carrinho() {
   const { itensCarrinho } = useContext(CarrinhoContext);
   const [alerta, setAlerta] = useState("");
+
+  let valorTotal = 0
+
+  itensCarrinho.forEach((item) => {
+    valorTotal = valorTotal + Number(item.preco)
+  })
 
   return (
     <main className="container-carrinho">
@@ -25,6 +32,13 @@ export function Carrinho() {
           {itensCarrinho.map((item, index) => (
             <CarrinhoItemCard key={index} index={index} item={item} setAlerta={setAlerta} />
           ))}
+          <div className="resumo-carrinho">
+            <div className="resumo-textos">
+              <span>Total da compra:</span>
+              <span className="resumo-valor">{formatPrice(valorTotal)}</span>
+            </div>
+            <button className="btn-finalizar" onClick={() => {alert("Compra finalizada!")}}>Finalizar Compra</button>
+          </div>
         </div>
       )}
     </main>
